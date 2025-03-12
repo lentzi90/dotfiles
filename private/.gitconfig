@@ -1,0 +1,8 @@
+[user]
+	name = Lennart Jern
+	email = lennart.jern@gmail.com
+	signingKey = 3820F67B590431A8E2ECBBC88CC3ECACCE12D523
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main

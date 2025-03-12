@@ -1,0 +1,8 @@
+[user]
+	name = Lennart Jern
+	email = lennart.jern@est.tech
+	signingKey = 4791B4372074169B1B09E6C5169B3557733EF25E
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main
