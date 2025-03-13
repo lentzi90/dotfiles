@@ -12,6 +12,8 @@ if [[ "${2}" == "--dry-run" ]]; then
   DRY_RUN=true
 fi
 
+echo "Setting up dotfiles using persona: ${PERSONA}"
+
 # Create symbolic links for every file in the PERSONA directory to the home directory
 for file in $(find "${PERSONA}" -type f); do
   if [[ "${DRY_RUN}" == "true" ]]; then
