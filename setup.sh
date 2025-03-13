@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 
-PERSONA="${1:-private}"
+PERSONA="${PERSONA:-private}"
 DRY_RUN=${DRY_RUN:-false}
 if [[ $# -eq 1 ]]; then
   if [[ "${1}" == "--dry-run" ]]; then
     DRY_RUN=true
-    PERSONA=private
   fi
-fi
-if [[ "${2}" == "--dry-run" ]]; then
-  DRY_RUN=true
+else
+  echo "Usage: setup.sh [--dry-run]"
 fi
 
 echo "Setting up dotfiles using persona: ${PERSONA}"
