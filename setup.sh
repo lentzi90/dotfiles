@@ -3,10 +3,6 @@
 PERSONA="${PERSONA:-private}"
 DRY_RUN=${DRY_RUN:-false}
 if [[ $# -eq 1 ]]; then
-  if [[ "${1}" == "--dry-run" ]]; then
-    DRY_RUN=true
-  fi
-else
   echo "Usage: setup.sh [--dry-run]"
 fi
 

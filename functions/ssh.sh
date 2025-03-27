@@ -1,5 +1,10 @@
 #!/bin/env bash
 
+# ssh without host key checking and without saving to the known_hosts file
+ssh_once() {
+  ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no "$@"
+}
+
 inject_ssh_config() {
     if [ "$#" -lt 2 ]; then
         echo "Usage: inject_ssh_config <user@IP> <Host> [jumphost]" >&2
