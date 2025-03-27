@@ -21,15 +21,37 @@ for file in $(find "${PERSONA}" -type f); do
   fi
 done
 
-# Source common functions in .bashrc
+# Create symbolic links for every file in the common directory to the home directory
+for file in $(find common -type f); do
+  if [[ "${DRY_RUN}" == "true" ]]; then
+    echo "ln --symbolic --force $(pwd)/${file} ${HOME}/"
+  else
+    ln --symbolic --force "$(pwd)/${file}" "${HOME}/"
+  fi
+done
+
+# Source functions in .bashrc
 # Note that .bashrc sources .bash_aliases so we add there to not polute .bashrc
+
 if [[ "${DRY_RUN}" == "true" ]]; then
-  echo "source $(pwd)/functions.sh"
-elif ! grep -q "source $(pwd)/functions.sh" "${HOME}/.bash_aliases"; then
-  {
-    echo "# lentzi90/dotfiles functions"
-    echo "source $(pwd)/functions.sh"
-  } >> "${HOME}/.bash_aliases"
+  echo 'sed -i.bak "/# dotfiles functions Start/,/# dotfiles functions End/d" "${HOME}/.bash_aliases"'
+  echo 'echo "# dotfiles functions Start" >> "${HOME}/.bash_aliases"'
 else
-  echo "Functions already sourced in .bash_aliases"
+  touch "${HOME}/.bash_aliases"
+  sed -i.bak "/# dotfiles functions Start/,/# dotfiles functions End/d" "${HOME}/.bash_aliases"
+  echo "# dotfiles functions Start" >> "${HOME}/.bash_aliases"
+fi
+
+for file in $(find functions -type f); do
+  if [[ "${DRY_RUN}" == "true" ]]; then
+    echo "echo source $(pwd)/${file} >> ${HOME}/.bash_aliases"
+  else
+    echo "source $(pwd)/${file}" >> "${HOME}/.bash_aliases"
+  fi
+done
+
+if [[ "${DRY_RUN}" == "true" ]]; then
+  echo 'echo "# dotfiles functions End" >> "${HOME}/.bash_aliases"'
+else
+  echo "# dotfiles functions End" >> "${HOME}/.bash_aliases"
 fi
