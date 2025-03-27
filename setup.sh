@@ -26,6 +26,17 @@ for file in $(find common -type f); do
   fi
 done
 
+# Fedora used .bashrc.d directory to source files in .bashrc
+# Create symbolic links for all files in functions to bashrc.d
+mkdir -p "${HOME}/.bashrc.d"
+for file in $(find functions -type f); do
+  if [[ "${DRY_RUN}" == "true" ]]; then
+    echo "ln --symbolic --force $(pwd)/${file} ${HOME}/.bashrc.d/"
+  else
+    ln --symbolic --force "$(pwd)/${file}" "${HOME}/.bashrc.d/"
+  fi
+done
+
 # Source functions in .bashrc
 # Note that .bashrc sources .bash_aliases so we add there to not polute .bashrc
 
