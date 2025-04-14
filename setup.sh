@@ -3,10 +3,21 @@
 PERSONA="${PERSONA:-private}"
 DRY_RUN=${DRY_RUN:-false}
 if [[ $# -eq 1 ]]; then
-  echo "Usage: setup.sh [--dry-run]"
+  echo "Usage: setup.sh"
+  echo "Supports the following environment variables:"
+  echo "  PERSONA: The persona to use (default: private, alt. work)"
+  echo "  DRY_RUN: If set to true, will not make any changes (default: false)"
+  exit 1
 fi
 
 echo "Setting up dotfiles using persona: ${PERSONA}"
+echo "Dry run mode: ${DRY_RUN}"
+echo "Are you sure you want to continue? (y/n)"
+read -r answer
+if [[ "${answer}" != "y" ]]; then
+  echo "Aborting setup."
+  exit 1
+fi
 
 # Create symbolic links for every file in the PERSONA directory to the home directory
 for file in $(find "${PERSONA}" -type f); do
@@ -61,4 +72,11 @@ if [[ "${DRY_RUN}" == "true" ]]; then
   echo 'echo "# dotfiles functions End" >> "${HOME}/.bash_aliases"'
 else
   echo "# dotfiles functions End" >> "${HOME}/.bash_aliases"
+fi
+
+# Import the PGP key
+if [[ "${DRY_RUN}" == "true" ]]; then
+  echo "gpg --import $(pwd)/public.asc"
+else
+  gpg --import "$(pwd)/public.asc"
 fi
