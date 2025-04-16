@@ -12,12 +12,6 @@ fi
 
 echo "Setting up dotfiles using persona: ${PERSONA}"
 echo "Dry run mode: ${DRY_RUN}"
-echo "Are you sure you want to continue? (y/n)"
-read -r answer
-if [[ "${answer}" != "y" ]]; then
-  echo "Aborting setup."
-  exit 1
-fi
 
 # Create symbolic links for every file in the PERSONA directory to the home directory
 for file in $(find "${PERSONA}" -type f); do

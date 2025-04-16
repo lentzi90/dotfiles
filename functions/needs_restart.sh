@@ -1,3 +1,5 @@
+#!/bin/env bash
+
 # Check if a reboot is needed
 needs_restart() {
   if [ -f /var/run/reboot-required ]; then
