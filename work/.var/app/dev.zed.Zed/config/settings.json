@@ -7,6 +7,48 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "ssh_connections": [
+    {
+      "host": "capo.devpod",
+      "projects": [
+        {
+          "paths": ["/workspaces/capo"]
+        }
+      ]
+    },
+    {
+      "host": "capi.devpod",
+      "projects": [{ "paths": ["/workspaces/capi"] }]
+    },
+    {
+      "host": "capm3.devpod",
+      "projects": [{ "paths": ["/workspaces/capm3"] }]
+    },
+    {
+      "host": "cmctl.devpod",
+      "projects": [{ "paths": ["/workspaces/cmctl"] }]
+    },
+    {
+      "host": "cert-manager.devpod",
+      "projects": [{ "paths": ["/workspaces/cert-manager"] }]
+    },
+    {
+      "host": "prow.devpod",
+      "projects": [{ "paths": ["/workspaces/prow"] }]
+    },
+    {
+      "host": "kubernetes.devpod",
+      "projects": [{ "paths": ["/workspaces/kubernetes"] }]
+    },
+    {
+      "host": "sushy-tools.devpod",
+      "projects": [{ "paths": ["/workspaces/sushy-tools"] }]
+    },
+    {
+      "host": "bmo.devpod",
+      "projects": [{ "paths": ["/workspaces/bmo"] }]
+    }
+  ],
   "ui_font_size": 16,
   "buffer_font_size": 16,
   "theme": {
