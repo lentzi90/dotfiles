@@ -14,6 +14,7 @@
     "light": "One Light",
     "dark": "One Dark"
   },
+  "tab_size": 2,
   "features": {
     "edit_prediction_provider": "copilot"
   },
@@ -29,6 +30,11 @@
     }
   },
   "languages": {
+    "languages": {
+      "Markdown": {
+        "soft_wrap": "editor_width"
+      }
+    },
     "YAML": {
       "prettier": {
         "allowed": false
@@ -37,6 +43,22 @@
         "external": {
           "command": "yamlfmt",
           "arguments": ["-in"]
+        }
+      }
+    }
+  },
+  "lsp": {
+    "gopls": {
+      "initialization_options": {
+        "buildFlags": ["-tags=e2e"]
+      }
+    },
+    "yaml-language-server": {
+      "settings": {
+        "yaml": {
+          "schemaStore": {
+            "enable": false
+          }
         }
       }
     }
