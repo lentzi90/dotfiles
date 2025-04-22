@@ -1,0 +1,75 @@
+contexts:
+  default:
+    defaultIde: none
+    defaultProvider: docker
+    options:
+      DOTFILES_SCRIPT:
+        userProvided: true
+        value: setup.sh
+      DOTFILES_URL:
+        userProvided: true
+        value: git@github.com:lentzi90/dotfiles.git
+      GPG_AGENT_FORWARDING:
+        userProvided: true
+        value: "true"
+      SSH_CONFIG_PATH:
+        userProvided: true
+        value: ~/.ssh/config.d/devpod
+      TELEMETRY:
+        userProvided: true
+        value: "true"
+    providers:
+      docker:
+        creationTimestamp: "2024-10-25T05:30:57Z"
+        initialized: true
+        options:
+          DOCKER_BUILDER:
+            userProvided: true
+          DOCKER_HOST:
+            userProvided: true
+          DOCKER_PATH:
+            userProvided: true
+            value: docker
+          INACTIVITY_TIMEOUT:
+            userProvided: true
+      openstack:
+        creationTimestamp: "2024-12-10T08:05:15Z"
+        initialized: true
+        options:
+          AGENT_PATH:
+            value: /opt/devpod/agent
+          FLAVOR:
+            userProvided: true
+            value: c4m16-est
+          IMAGE:
+            value: Ubuntu-24.04
+          JUMPHOST:
+            userProvided: true
+            value: xerces-dev-jumphost
+          KEY_PAIR:
+            userProvided: true
+            value: lennart-ed25519
+          NETWORK:
+            userProvided: true
+            value: c259b545-d683-4925-becd-860a9286ce1d
+          OS_CLOUD:
+            userProvided: true
+            value: xerces-dev
+          SSH_USER:
+            value: ubuntu
+          VOLUME_SIZE: {}
+      podman:
+        creationTimestamp: "2024-11-28T19:05:35Z"
+        initialized: true
+        options:
+          DOCKER_BUILDER:
+            userProvided: true
+          DOCKER_HOST:
+            userProvided: true
+          DOCKER_PATH:
+            userProvided: true
+            value: podman
+          INACTIVITY_TIMEOUT:
+            userProvided: true
+        singleMachine: true
+defaultContext: default
