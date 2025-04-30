@@ -9,12 +9,12 @@
 {
   "ssh_connections": [
     {
+      "host": "orc.devpod",
+      "projects": [{ "paths": ["/workspaces/orc"] }]
+    },
+    {
       "host": "capo.devpod",
-      "projects": [
-        {
-          "paths": ["/workspaces/capo"]
-        }
-      ]
+      "projects": [{ "paths": ["/workspaces/capo"] }]
     },
     {
       "host": "capi.devpod",
