@@ -14,7 +14,7 @@ contexts:
         value: "true"
       SSH_CONFIG_PATH:
         userProvided: true
-        value: "${HOME}/.ssh/config.d/devpod"
+        value: "~/.ssh/config.d/devpod"
       TELEMETRY:
         userProvided: true
         value: "true"
