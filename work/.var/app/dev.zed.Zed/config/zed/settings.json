@@ -61,6 +61,7 @@
     "edit_prediction_provider": "copilot"
   },
   "assistant": {
+    "default_profile": "ask",
     "version": "2",
     "default_model": {
       "provider": "copilot_chat",
