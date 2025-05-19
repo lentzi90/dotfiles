@@ -17,5 +17,3 @@ if command -v clusterctl >/dev/null 2>&1; then
         source "${HOME}/.kube/clusterctl_completion.bash.inc"
     fi
 fi
-alias k=clusterctl
-complete -F __start_clusterctl k
