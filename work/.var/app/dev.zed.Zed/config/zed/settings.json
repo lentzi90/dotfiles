@@ -10,43 +10,92 @@
   "ssh_connections": [
     {
       "host": "orc.devpod",
-      "projects": [{ "paths": ["/workspaces/orc"] }]
+      "projects": [
+        {
+          "paths": ["/workspaces/orc"]
+        }
+      ]
     },
     {
       "host": "capo.devpod",
-      "projects": [{ "paths": ["/workspaces/capo"] }]
+      "projects": [
+        {
+          "paths": ["/workspaces/capo"]
+        }
+      ]
     },
     {
       "host": "capi.devpod",
-      "projects": [{ "paths": ["/workspaces/capi"] }]
+      "projects": [
+        {
+          "paths": ["/workspaces/capi"]
+        }
+      ]
     },
     {
       "host": "capm3.devpod",
-      "projects": [{ "paths": ["/workspaces/capm3"] }]
+      "projects": [
+        {
+          "paths": ["/workspaces/capm3"]
+        }
+      ]
     },
     {
       "host": "cmctl.devpod",
-      "projects": [{ "paths": ["/workspaces/cmctl"] }]
+      "projects": [
+        {
+          "paths": ["/workspaces/cmctl"]
+        }
+      ]
     },
     {
       "host": "cert-manager.devpod",
-      "projects": [{ "paths": ["/workspaces/cert-manager"] }]
+      "projects": [
+        {
+          "paths": ["/workspaces/cert-manager"]
+        }
+      ]
     },
     {
       "host": "prow.devpod",
-      "projects": [{ "paths": ["/workspaces/prow"] }]
+      "projects": [
+        {
+          "paths": ["/workspaces/prow"]
+        }
+      ]
     },
     {
       "host": "kubernetes.devpod",
-      "projects": [{ "paths": ["/workspaces/kubernetes"] }]
+      "projects": [
+        {
+          "paths": ["/workspaces/kubernetes"]
+        }
+      ]
     },
     {
       "host": "sushy-tools.devpod",
-      "projects": [{ "paths": ["/workspaces/sushy-tools"] }]
+      "projects": [
+        {
+          "paths": ["/workspaces/sushy-tools"]
+        }
+      ]
     },
     {
       "host": "bmo.devpod",
-      "projects": [{ "paths": ["/workspaces/bmo"] }]
+      "projects": [
+        {
+          "paths": ["/workspaces/bmo"]
+        }
+      ]
+    },
+    {
+      "host": "lennart-bmo-test",
+      "username": "ubuntu",
+      "projects": [
+        {
+          "paths": ["/home/ubuntu/baremetal-operator"]
+        }
+      ]
     }
   ],
   "ui_font_size": 16,
@@ -60,23 +109,17 @@
   "features": {
     "edit_prediction_provider": "copilot"
   },
-  "assistant": {
-    "default_profile": "ask",
+  "agent": {
+    "default_profile": "write",
     "version": "2",
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-3-5-sonnet"
-    },
-    "editor_model": {
-      "provider": "copilot_chat",
-      "model": "claude-3-5-sonnet"
+      "model": "claude-3.5-sonnet"
     }
   },
   "languages": {
-    "languages": {
-      "Markdown": {
-        "soft_wrap": "editor_width"
-      }
+    "Markdown": {
+      "soft_wrap": "editor_width"
     },
     "YAML": {
       "prettier": {
