@@ -14,7 +14,9 @@ contexts:
         value: "true"
       SSH_CONFIG_PATH:
         userProvided: true
-        value: "~/.ssh/config.d/devpod"
+        value: "~/.ssh/config"
+        # Put this back when https://github.com/loft-sh/devpod/issues/655 has been resolved (again)
+        # value: "~/.ssh/config.d/devpod"
       TELEMETRY:
         userProvided: true
         value: "true"
