@@ -29,6 +29,9 @@
     "light": "One Light",
     "dark": "One Dark"
   },
+  "minimap": {
+    "show": "always"
+  },
   "languages": {
     "YAML": {
       "prettier": {

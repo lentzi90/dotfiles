@@ -106,6 +106,9 @@
     "dark": "One Dark"
   },
   "tab_size": 2,
+  "minimap": {
+    "show": "always"
+  },
   "features": {
     "edit_prediction_provider": "copilot"
   },
