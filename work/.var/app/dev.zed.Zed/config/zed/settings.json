@@ -7,127 +7,156 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent_servers": {
+    "opencode": {
+      "type": "registry"
+    },
+    "github-copilot": {
+      "type": "registry"
+    }
+  },
+  "edit_predictions": {
+    "provider": "copilot"
+  },
+  "terminal": {
+    "dock": "bottom"
+  },
+  "context_servers": {
+    "github-mcp": {
+      "command": "github-mcp.sh",
+      "args": []
+    }
+  },
   "ssh_connections": [
     {
       "host": "orc.devpod",
+      "args": [],
       "projects": [
         {
-          "paths": [
-            "/workspaces/orc"
-          ]
+          "paths": ["/home/ubuntu"]
+        },
+        {
+          "paths": ["/workspaces/kyverno-website"]
+        },
+        {
+          "paths": ["/workspaces/metal3-mcp"]
+        },
+        {
+          "paths": ["/workspaces/orc"]
+        },
+        {
+          "paths": ["/workspaces/workspace"]
         }
       ]
     },
     {
       "host": "capo.devpod",
+      "args": [],
       "projects": [
         {
-          "paths": [
-            "/workspaces/capo"
-          ]
+          "paths": ["/workspaces/capo"]
         }
       ]
     },
     {
       "host": "capi.devpod",
+      "args": [],
       "projects": [
         {
-          "paths": [
-            "/workspaces/capi"
-          ]
+          "paths": ["/workspaces/capi"]
         }
       ]
     },
     {
       "host": "capm3.devpod",
+      "args": [],
       "projects": [
         {
-          "paths": [
-            "/workspaces/capm3"
-          ]
-        }
-      ]
-    },
-    {
-      "host": "cmctl.devpod",
-      "projects": [
-        {
-          "paths": [
-            "/workspaces/cmctl"
-          ]
-        }
-      ]
-    },
-    {
-      "host": "cert-manager.devpod",
-      "projects": [
-        {
-          "paths": [
-            "/workspaces/cert-manager"
-          ]
+          "paths": ["/workspaces/capm3"]
         }
       ]
     },
     {
       "host": "prow.devpod",
+      "args": [],
       "projects": [
         {
-          "paths": [
-            "/workspaces/prow"
-          ]
+          "paths": ["/workspaces/prow"]
         }
       ]
     },
     {
       "host": "kubernetes.devpod",
+      "args": [],
       "projects": [
         {
-          "paths": [
-            "/workspaces/kubernetes"
-          ]
+          "paths": ["/workspaces/kubernetes"]
         }
       ]
     },
     {
       "host": "sushy-tools.devpod",
+      "args": [],
       "projects": [
         {
-          "paths": [
-            "/workspaces/sushy-tools"
-          ]
+          "paths": ["/workspaces/sushy-tools"]
         }
       ]
     },
     {
       "host": "bmo.devpod",
+      "args": [],
       "projects": [
         {
-          "paths": [
-            "/workspaces/bmo"
-          ]
-        }
-      ]
-    },
-    {
-      "host": "lennart-bmo-test",
-      "username": "ubuntu",
-      "projects": [
-        {
-          "paths": [
-            "/home/ubuntu/baremetal-operator"
-          ]
+          "paths": ["/workspaces/bmo"]
         }
       ]
     },
     {
       "host": "ipam.devpod",
+      "args": [],
       "projects": [
         {
-          "paths": [
-            "/workspaces/ipam"
-          ]
+          "paths": ["/workspaces/ipam"]
         }
       ]
+    },
+    {
+      "host": "irso.devpod",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/workspaces/irso"]
+        }
+      ]
+    },
+    {
+      "host": "kyverno.devpod",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/workspaces/kyverno"]
+        }
+      ]
+    },
+    {
+      "host": "lennart-cks-cp",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/home/ubuntu"]
+        }
+      ]
+    },
+    {
+      "host": "metal3-mcp.devpod",
+      "args": [],
+      "projects": []
+    },
+    {
+      "host": "workspace.devpod",
+      "args": [],
+      "projects": []
     }
   ],
   "ui_font_size": 16,
@@ -141,10 +170,8 @@
   "minimap": {
     "show": "always"
   },
-  "features": {
-    "edit_prediction_provider": "copilot"
-  },
   "agent": {
+    "always_allow_tool_actions": true,
     "profiles": {
       "ask": {
         "name": "Ask",
@@ -164,7 +191,7 @@
         },
         "enable_all_context_servers": false,
         "context_servers": {
-          "mcp-server-github": {
+          "github-mcp": {
             "tools": {
               "search_users": true,
               "search_repositories": true,
@@ -172,12 +199,10 @@
               "search_orgs": true,
               "search_issues": true,
               "search_code": true,
-              "list_workflows": true,
-              "list_workflow_runs": true,
-              "list_workflow_run_artifacts": true,
-              "list_workflow_jobs": true,
+              "actions_list": true,
+              "actions_get": true,
               "list_tags": true,
-              "list_sub_issues": true,
+              "list_releases": true,
               "list_secret_scanning_alerts": true,
               "list_pull_requests": true,
               "list_notifications": true,
@@ -189,27 +214,26 @@
               "list_commits": true,
               "list_code_scanning_alerts": true,
               "list_branches": true,
-              "get_workflow_run_usage": true,
-              "get_workflow_run_logs": true,
-              "get_workflow_run": true,
               "get_tag": true,
+              "get_latest_release": true,
+              "get_release_by_tag": true,
               "get_secret_scanning_alert": true,
-              "get_pull_request_status": true,
-              "get_pull_request_reviews": true,
-              "get_pull_request_files": true,
-              "get_pull_request_diff": true,
-              "get_pull_request_comments": true,
-              "get_pull_request": true,
+              "pull_request_read": true,
               "get_notification_details": true,
               "get_me": true,
+              "get_teams": true,
+              "get_team_members": true,
               "get_job_logs": true,
-              "get_issue_comments": true,
-              "get_issue": true,
+              "issue_read": true,
               "get_file_contents": true,
+              "get_repository_tree": true,
               "get_discussion_comments": true,
               "get_discussion": true,
               "get_dependabot_alert": true,
-              "get_commit": true
+              "get_code_scanning_alert": true,
+              "get_commit": true,
+              "get_gist": true,
+              "get_label": true
             }
           }
         }
@@ -218,7 +242,7 @@
     "default_profile": "write",
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-3.5-sonnet"
+      "model": "claude-opus-4.6"
     }
   },
   "languages": {
@@ -240,7 +264,7 @@
   "lsp": {
     "gopls": {
       "initialization_options": {
-        "buildFlags": ["-tags=e2e"]
+        "buildFlags": ["-tags=e2e,tools"]
       }
     },
     "yaml-language-server": {
