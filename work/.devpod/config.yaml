@@ -14,9 +14,7 @@ contexts:
         value: "true"
       SSH_CONFIG_PATH:
         userProvided: true
-        value: "~/.ssh/config"
-        # Put this back when https://github.com/loft-sh/devpod/issues/655 has been resolved (again)
-        # value: "~/.ssh/config.d/devpod"
+        value: ~/.ssh/config
       TELEMETRY:
         userProvided: true
         value: "true"
@@ -47,7 +45,7 @@ contexts:
             value: Ubuntu-24.04
           JUMPHOST:
             userProvided: true
-            value: xerces-dev-jumphost
+            value: xerces-dev
           KEY_PAIR:
             userProvided: true
             value: lennart-ed25519
