@@ -8,173 +8,109 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "git_panel": {
-    "tree_view": true
+    "tree_view": true,
   },
   "agent_servers": {
     "opencode": {
-      "type": "registry"
+      "type": "registry",
     },
     "github-copilot": {
-      "type": "registry"
-    }
+      "type": "registry",
+    },
   },
   "edit_predictions": {
-    "provider": "copilot"
+    "provider": "copilot",
   },
   "terminal": {
-    "dock": "bottom"
+    "dock": "bottom",
   },
   "context_servers": {
     "github-mcp": {
       "command": "github-mcp.sh",
-      "args": []
-    }
+      "args": [],
+    },
   },
   "ssh_connections": [
-    {
-      "host": "orc.devpod",
-      "args": [],
-      "projects": [
-        {
-          "paths": ["/home/ubuntu"]
-        },
-        {
-          "paths": ["/workspaces/kyverno-website"]
-        },
-        {
-          "paths": ["/workspaces/metal3-mcp"]
-        },
-        {
-          "paths": ["/workspaces/orc"]
-        },
-        {
-          "paths": ["/workspaces/workspace"]
-        }
-      ]
-    },
     {
       "host": "capo.devpod",
       "args": [],
       "projects": [
         {
-          "paths": ["/workspaces/capo"]
-        }
-      ]
+          "paths": ["/workspaces/capo"],
+        },
+      ],
     },
     {
       "host": "capi.devpod",
       "args": [],
       "projects": [
         {
-          "paths": ["/workspaces/capi"]
-        }
-      ]
+          "paths": ["/workspaces/capi"],
+        },
+      ],
     },
     {
       "host": "capm3.devpod",
       "args": [],
       "projects": [
         {
-          "paths": ["/workspaces/capm3"]
-        }
-      ]
-    },
-    {
-      "host": "prow.devpod",
-      "args": [],
-      "projects": [
-        {
-          "paths": ["/workspaces/prow"]
-        }
-      ]
-    },
-    {
-      "host": "kubernetes.devpod",
-      "args": [],
-      "projects": [
-        {
-          "paths": ["/workspaces/kubernetes"]
-        }
-      ]
-    },
-    {
-      "host": "sushy-tools.devpod",
-      "args": [],
-      "projects": [
-        {
-          "paths": ["/workspaces/sushy-tools"]
-        }
-      ]
+          "paths": ["/workspaces/capm3"],
+        },
+      ],
     },
     {
       "host": "bmo.devpod",
       "args": [],
       "projects": [
         {
-          "paths": ["/workspaces/bmo"]
-        }
-      ]
+          "paths": ["/workspaces/bmo"],
+        },
+      ],
     },
     {
       "host": "ipam.devpod",
       "args": [],
       "projects": [
         {
-          "paths": ["/workspaces/ipam"]
-        }
-      ]
+          "paths": ["/workspaces/ipam"],
+        },
+      ],
     },
     {
       "host": "irso.devpod",
       "args": [],
       "projects": [
         {
-          "paths": ["/workspaces/irso"]
-        }
-      ]
-    },
-    {
-      "host": "kyverno.devpod",
-      "args": [],
-      "projects": [
-        {
-          "paths": ["/workspaces/kyverno"]
-        }
-      ]
-    },
-    {
-      "host": "lennart-cks-cp",
-      "args": [],
-      "projects": [
-        {
-          "paths": ["/home/ubuntu"]
-        }
-      ]
+          "paths": ["/workspaces/irso"],
+        },
+      ],
     },
     {
       "host": "metal3-mcp.devpod",
       "args": [],
-      "projects": []
+      "projects": [],
     },
     {
       "host": "workspace.devpod",
       "args": [],
-      "projects": []
-    }
+      "projects": [],
+    },
   ],
   "ui_font_size": 16,
   "buffer_font_size": 16,
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "One Dark"
+    "dark": "One Dark",
   },
   "tab_size": 2,
   "minimap": {
-    "show": "always"
+    "show": "always",
   },
   "agent": {
-    "always_allow_tool_actions": true,
+    "tool_permissions": {
+      "default": "allow",
+    },
     "profiles": {
       "ask": {
         "name": "Ask",
@@ -190,7 +126,7 @@
           "open": true,
           "grep": true,
           "thinking": true,
-          "web_search": true
+          "web_search": true,
         },
         "enable_all_context_servers": false,
         "context_servers": {
@@ -236,48 +172,53 @@
               "get_code_scanning_alert": true,
               "get_commit": true,
               "get_gist": true,
-              "get_label": true
-            }
-          }
-        }
-      }
+              "get_label": true,
+            },
+          },
+        },
+      },
     },
     "default_profile": "write",
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-opus-4.6"
-    }
+      "model": "claude-opus-4.6",
+    },
+  },
+  "language_models": {
+    "ollama": {
+      "context_window": 40960,
+    },
   },
   "languages": {
     "Markdown": {
-      "soft_wrap": "editor_width"
+      "soft_wrap": "editor_width",
     },
     "YAML": {
       "prettier": {
-        "allowed": false
+        "allowed": false,
       },
       "formatter": {
         "external": {
           "command": "yamlfmt",
-          "arguments": ["-in"]
-        }
-      }
-    }
+          "arguments": ["-in"],
+        },
+      },
+    },
   },
   "lsp": {
     "gopls": {
       "initialization_options": {
-        "buildFlags": ["-tags=e2e,tools"]
-      }
+        "buildFlags": ["-tags=e2e,tools"],
+      },
     },
     "yaml-language-server": {
       "settings": {
         "yaml": {
           "schemaStore": {
-            "enable": false
-          }
-        }
-      }
-    }
-  }
+            "enable": false,
+          },
+        },
+      },
+    },
+  },
 }
