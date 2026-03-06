@@ -24,8 +24,7 @@
 # ---------------------------------------------------------------------------
 # Defaults
 # ---------------------------------------------------------------------------
-DEVVM_OS_CLOUD="${DEVVM_OS_CLOUD:-${OS_CLOUD:-xerces-dev}}"
-DEVVM_NETWORK="${DEVVM_NETWORK:-c259b545-d683-4925-becd-860a9286ce1d}"
+DEVVM_NETWORK="${DEVVM_NETWORK:-metal3-ci-net}"
 DEVVM_KEY_PAIR="${DEVVM_KEY_PAIR:-lennart-ed25519}"
 DEVVM_FLAVOR="${DEVVM_FLAVOR:-c4m16-est}"
 DEVVM_IMAGE="${DEVVM_IMAGE:-Ubuntu-24.04}"
@@ -47,22 +46,17 @@ _devvm_err() {
     echo "ERROR: $*" >&2
 }
 
-# Run openstack CLI with the configured cloud.
-_devvm_openstack() {
-    OS_CLOUD="${DEVVM_OS_CLOUD}" openstack "$@"
-}
-
 # Get the IP address of a server.
 _devvm_get_ip() {
     local name="$1"
-    _devvm_openstack server show "${name}" -f json | \
+    openstack server show "${name}" -f json | \
         jq -r '.addresses | to_entries[0].value[0]'
 }
 
 # Get volume IDs attached to a server (empty string if none).
 _devvm_get_volumes() {
     local name="$1"
-    _devvm_openstack server show "${name}" -f json | \
+    openstack server show "${name}" -f json | \
         jq -r '.volumes_attached[].id // empty' 2>/dev/null
 }
 
@@ -219,9 +213,9 @@ _devvm_create() {
     fi
 
     # --- Create the OpenStack VM -------------------------------------------
-    _devvm_log "Creating VM '${name}' (flavor=${flavor}, image=${image})..."
+    _devvm_log "Creating VM '${name}' (flavor=${flavor}, image=${image}, network=${DEVVM_NETWORK})..."
 
-    local cmd=(_devvm_openstack server create
+    local cmd=(openstack server create
         --image "${image}"
         --flavor "${flavor}"
         --network "${DEVVM_NETWORK}"
@@ -298,7 +292,7 @@ _devvm_delete() {
 
     # --- Delete the server -------------------------------------------------
     _devvm_log "Deleting VM '${name}' ..."
-    if ! _devvm_openstack server delete "${name}" --wait; then
+    if ! openstack server delete "${name}" --wait; then
         _devvm_err "Failed to delete VM '${name}'."
         return 1
     fi
@@ -310,7 +304,7 @@ _devvm_delete() {
         local vol
         for vol in ${volumes}; do
             _devvm_log "  Deleting volume ${vol}"
-            _devvm_openstack volume delete "${vol}" || \
+            openstack volume delete "${vol}" || \
                 _devvm_err "  Failed to delete volume ${vol} — may need manual cleanup."
         done
     fi
@@ -374,8 +368,7 @@ devvm() {
             echo "  --volume-size <GB>        Boot volume size; omit for ephemeral disk"
             echo ""
             echo "Environment variables:"
-            echo "  DEVVM_OS_CLOUD            OpenStack cloud override (current: ${DEVVM_OS_CLOUD})"
-            echo "  OS_CLOUD                  Standard OpenStack cloud variable (fallback if DEVVM_OS_CLOUD is unset)"
+            echo "  OS_CLOUD                  Standard OpenStack cloud variable"
             echo "  DEVVM_NETWORK             Network ID (default: ${DEVVM_NETWORK})"
             echo "  DEVVM_KEY_PAIR            SSH key pair (default: ${DEVVM_KEY_PAIR})"
             echo "  DEVVM_FLAVOR              Default flavor (default: ${DEVVM_FLAVOR})"
