@@ -95,6 +95,16 @@
       "args": [],
       "projects": [],
     },
+    {
+      "host": "10.1.0.84",
+      "username": "ubuntu",
+      "args": ["-J", "xerces-capo"],
+      "projects": [
+        {
+          "paths": ["/home/ubuntu/workspace"],
+        },
+      ],
+    },
   ],
   "ui_font_size": 16,
   "buffer_font_size": 16,
@@ -180,13 +190,15 @@
     },
     "default_profile": "write",
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "claude-opus-4.6",
+      "enable_thinking": true,
+      "provider": "ollama",
+      "model": "qwen3.5:4b",
     },
   },
   "language_models": {
     "ollama": {
-      "context_window": 40960,
+      "context_window": 40000,
+      "api_url": "http://192.168.122.108:11434",
     },
   },
   "languages": {
