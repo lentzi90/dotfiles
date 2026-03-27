@@ -320,6 +320,14 @@ _devvm_delete() {
     _devvm_log "VM '${name}' fully cleaned up."
 }
 
+_devvm_list() {
+    _devvm_log "Listing dev VMs (key_pair=${DEVVM_KEY_PAIR}) ..."
+    openstack server list \
+        --key-name "${DEVVM_KEY_PAIR}" \
+        -f table \
+        -c Name -c Status -c Networks -c Flavor
+}
+
 # ---------------------------------------------------------------------------
 # Dispatcher
 # ---------------------------------------------------------------------------
@@ -336,8 +344,7 @@ devvm() {
             _devvm_delete "$@"
             ;;
         list)
-            _devvm_err "Not yet implemented."
-            return 1
+            _devvm_list
             ;;
         ssh)
             _devvm_err "Not yet implemented."
@@ -357,7 +364,7 @@ devvm() {
             echo "Commands:"
             echo "  create <name> [options]   Create and provision a dev VM"
             echo "  delete <name>             Delete a dev VM and clean up"
-            echo "  list                      List dev VMs (not yet implemented)"
+            echo "  list                      List dev VMs"
             echo "  ssh <name>                SSH into a dev VM (not yet implemented)"
             echo "  status <name>             Show VM status (not yet implemented)"
             echo "  provision <name>          Re-provision a VM (not yet implemented)"
