@@ -32,4 +32,4 @@ if [[ -z "${token}" ]]; then
 fi
 
 export GITHUB_PERSONAL_ACCESS_TOKEN="${token}"
-exec github-mcp-server stdio
+exec github-mcp-server --read-only stdio
