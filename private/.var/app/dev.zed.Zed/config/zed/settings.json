@@ -7,42 +7,48 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "edit_predictions": {
+    "provider": "copilot",
+  },
   "icon_theme": "Zed (Default)",
-  "features": {
-    "edit_prediction_provider": "copilot"
+  "context_servers": {
+    "github-mcp": {
+      "command": "github-mcp.sh",
+      "args": [],
+    },
   },
   "agent": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-3.5-sonnet"
+      "model": "claude-4.6-sonnet",
     },
     "model_parameters": [],
     "inline_assistant_model": {
       "provider": "copilot_chat",
-      "model": "claude-3.5-sonnet"
-    }
+      "model": "claude-4.6-sonnet",
+    },
   },
   "ui_font_size": 16,
   "buffer_font_size": 16,
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "One Dark"
+    "dark": "One Dark",
   },
   "minimap": {
-    "show": "always"
+    "show": "always",
   },
   "languages": {
     "YAML": {
       "prettier": {
-        "allowed": false
+        "allowed": false,
       },
       "formatter": {
         "external": {
           "command": "yamlfmt",
-          "arguments": ["-in"]
-        }
-      }
-    }
-  }
+          "arguments": ["-in"],
+        },
+      },
+    },
+  },
 }
