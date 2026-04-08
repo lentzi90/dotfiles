@@ -11,6 +11,9 @@
     "tree_view": true,
   },
   "agent_servers": {
+    "github-copilot-cli": {
+      "type": "registry",
+    },
     "opencode": {
       "type": "registry",
     },
@@ -23,6 +26,10 @@
   },
   "terminal": {
     "dock": "bottom",
+    "env": {
+      "LD_LIBRARY_PATH": "",
+      "LD_PRELOAD": "",
+    },
   },
   "context_servers": {
     "github-mcp": {
@@ -105,6 +112,16 @@
         },
       ],
     },
+    {
+      "host": "lennart-capo-upgrade",
+      "username": "ubuntu",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/home/ubuntu/dotfiles"],
+        },
+      ],
+    },
   ],
   "ui_font_size": 16,
   "buffer_font_size": 16,
@@ -122,6 +139,83 @@
       "default": "allow",
     },
     "profiles": {
+      "minimal-write": {
+        "name": "Minimal write",
+        "tools": {
+          "copy_path": true,
+          "create_directory": true,
+          "delete_path": true,
+          "diagnostics": true,
+          "edit_file": true,
+          "fetch": true,
+          "list_directory": true,
+          "project_notifications": false,
+          "move_path": true,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "restore_file_from_disk": true,
+          "save_file": true,
+          "open": true,
+          "grep": true,
+          "spawn_agent": true,
+          "terminal": true,
+          "thinking": true,
+          "web_search": true,
+        },
+        "enable_all_context_servers": true,
+        "context_servers": {
+          "github-mcp": {
+            "tools": {
+              "update_pull_request_branch": false,
+              "update_pull_request": false,
+              "sub_issue_write": false,
+              "request_copilot_review": false,
+              "push_files": false,
+              "pull_request_review_write": false,
+              "merge_pull_request": false,
+              "issue_write": false,
+              "fork_repository": false,
+              "delete_file": false,
+              "create_repository": false,
+              "create_pull_request": false,
+              "create_or_update_file": false,
+              "create_branch": false,
+              "assign_copilot_to_issue": false,
+              "add_reply_to_pull_request_comment": false,
+              "add_issue_comment": false,
+              "add_comment_to_pending_review": false,
+            },
+          },
+        },
+      },
+      "write": {
+        "name": "Write",
+        "tools": {
+          "copy_path": true,
+          "create_directory": true,
+          "delete_path": true,
+          "diagnostics": true,
+          "edit_file": true,
+          "fetch": true,
+          "list_directory": true,
+          "project_notifications": false,
+          "move_path": true,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "restore_file_from_disk": true,
+          "save_file": true,
+          "open": true,
+          "grep": true,
+          "spawn_agent": true,
+          "terminal": true,
+          "thinking": true,
+          "web_search": true,
+        },
+        "enable_all_context_servers": true,
+        "context_servers": {},
+      },
       "ask": {
         "name": "Ask",
         "tools": {
@@ -188,11 +282,16 @@
         },
       },
     },
-    "default_profile": "write",
+    "default_profile": "minimal-write",
     "default_model": {
+      "effort": "high",
       "enable_thinking": true,
-      "provider": "ollama",
-      "model": "qwen3.5:4b",
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4.6",
+    },
+    "commit_message_model": {
+      "provider": "copilot_chat",
+      "model": "claude-haiku-4.5",
     },
   },
   "language_models": {
