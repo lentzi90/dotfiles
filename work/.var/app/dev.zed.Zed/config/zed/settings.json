@@ -7,7 +7,17 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "project_panel": {
+    "dock": "right",
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
   "git_panel": {
+    "dock": "right",
     "tree_view": true,
   },
   "agent_servers": {
@@ -42,6 +52,9 @@
       "host": "capo.devpod",
       "args": [],
       "projects": [
+        {
+          "paths": ["/home/ubuntu/workspace"],
+        },
         {
           "paths": ["/workspaces/capo"],
         },
@@ -93,24 +106,9 @@
       ],
     },
     {
-      "host": "metal3-mcp.devpod",
-      "args": [],
-      "projects": [],
-    },
-    {
       "host": "workspace.devpod",
       "args": [],
       "projects": [],
-    },
-    {
-      "host": "10.1.0.84",
-      "username": "ubuntu",
-      "args": ["-J", "xerces-capo"],
-      "projects": [
-        {
-          "paths": ["/home/ubuntu/workspace"],
-        },
-      ],
     },
     {
       "host": "lennart-capo-upgrade",
@@ -135,6 +133,7 @@
     "show": "always",
   },
   "agent": {
+    "dock": "left",
     "tool_permissions": {
       "default": "allow",
     },
@@ -142,6 +141,7 @@
       "minimal-write": {
         "name": "Minimal write",
         "tools": {
+          "search_web": true,
           "copy_path": true,
           "create_directory": true,
           "delete_path": true,
@@ -161,7 +161,6 @@
           "spawn_agent": true,
           "terminal": true,
           "thinking": true,
-          "web_search": true,
         },
         "enable_all_context_servers": true,
         "context_servers": {
@@ -192,6 +191,7 @@
       "write": {
         "name": "Write",
         "tools": {
+          "search_web": true,
           "copy_path": true,
           "create_directory": true,
           "delete_path": true,
@@ -211,7 +211,6 @@
           "spawn_agent": true,
           "terminal": true,
           "thinking": true,
-          "web_search": true,
         },
         "enable_all_context_servers": true,
         "context_servers": {},
@@ -219,6 +218,7 @@
       "ask": {
         "name": "Ask",
         "tools": {
+          "search_web": true,
           "contents": true,
           "diagnostics": true,
           "fetch": true,
@@ -230,7 +230,6 @@
           "open": true,
           "grep": true,
           "thinking": true,
-          "web_search": true,
         },
         "enable_all_context_servers": false,
         "context_servers": {
