@@ -163,8 +163,10 @@ _devvm_install_dotfiles() {
     local name="$1"
 
     _devvm_log "Installing dotfiles on ${name} ..."
-    ssh "${name}" bash -s <<REMOTE
+    ssh -A "${name}" bash -s <<REMOTE
 set -euo pipefail
+mkdir -p ~/.ssh
+ssh-keyscan -H github.com >> ~/.ssh/known_hosts 2>/dev/null
 if [[ -d ~/dotfiles ]]; then
     cd ~/dotfiles && git pull
 else
@@ -358,6 +360,13 @@ devvm() {
             _devvm_err "Not yet implemented."
             return 1
             ;;
+        dotfiles)
+            if [[ -z "${1:-}" ]]; then
+                _devvm_err "Usage: devvm dotfiles <name>"
+                return 1
+            fi
+            _devvm_install_dotfiles "$1"
+            ;;
         help|--help|-h|*)
             echo "Usage: devvm <command> [args]"
             echo ""
@@ -368,6 +377,7 @@ devvm() {
             echo "  ssh <name>                SSH into a dev VM (not yet implemented)"
             echo "  status <name>             Show VM status (not yet implemented)"
             echo "  provision <name>          Re-provision a VM (not yet implemented)"
+            echo "  dotfiles <name>           Install/update dotfiles on a VM"
             echo ""
             echo "Options for create:"
             echo "  --flavor <flavor>         OpenStack flavor (default: ${DEVVM_FLAVOR})"
