@@ -357,8 +357,11 @@ devvm() {
             return 1
             ;;
         provision)
-            _devvm_err "Not yet implemented."
-            return 1
+            if [[ -z "${1:-}" ]]; then
+                _devvm_err "Usage: devvm provision <name>"
+                return 1
+            fi
+            _devvm_provision_ansible "$1"
             ;;
         dotfiles)
             if [[ -z "${1:-}" ]]; then
