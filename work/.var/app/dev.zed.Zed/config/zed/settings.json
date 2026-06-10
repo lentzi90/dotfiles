@@ -49,77 +49,119 @@
   },
   "ssh_connections": [
     {
-      "host": "capo.devpod",
-      "args": [],
-      "projects": [
-        {
-          "paths": ["/home/ubuntu/workspace"],
-        },
-        {
-          "paths": ["/workspaces/capo"],
-        },
-      ],
-    },
-    {
-      "host": "capi.devpod",
-      "args": [],
-      "projects": [
-        {
-          "paths": ["/workspaces/capi"],
-        },
-      ],
-    },
-    {
-      "host": "capm3.devpod",
-      "args": [],
-      "projects": [
-        {
-          "paths": ["/workspaces/capm3"],
-        },
-      ],
-    },
-    {
-      "host": "bmo.devpod",
-      "args": [],
-      "projects": [
-        {
-          "paths": ["/workspaces/bmo"],
-        },
-      ],
-    },
-    {
-      "host": "ipam.devpod",
-      "args": [],
-      "projects": [
-        {
-          "paths": ["/workspaces/ipam"],
-        },
-      ],
-    },
-    {
-      "host": "irso.devpod",
-      "args": [],
-      "projects": [
-        {
-          "paths": ["/workspaces/irso"],
-        },
-      ],
-    },
-    {
       "host": "workspace.devpod",
       "args": [],
-      "projects": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/ubuntu/playground"
+          ]
+        },
+        {
+          "paths": [
+            "/workspaces/workspace"
+          ]
+        },
+        {
+          "paths": [
+            "/workspaces/workspace/ai-conformance"
+          ]
+        },
+        {
+          "paths": [
+            "/workspaces/workspace/baremetal-operator"
+          ]
+        },
+        {
+          "paths": [
+            "/workspaces/workspace/cluster-api-provider-metal3"
+          ]
+        },
+        {
+          "paths": [
+            "/workspaces/workspace/cluster-api-provider-openstack"
+          ]
+        },
+        {
+          "paths": [
+            "/workspaces/workspace/estjorvas/ci-bot"
+          ]
+        },
+        {
+          "paths": [
+            "/workspaces/workspace/ironic"
+          ]
+        },
+        {
+          "paths": [
+            "/workspaces/workspace/ironic-image"
+          ]
+        },
+        {
+          "paths": [
+            "/workspaces/workspace/ironic-standalone-operator"
+          ]
+        },
+        {
+          "paths": [
+            "/workspaces/workspace/kubevirt"
+          ]
+        },
+        {
+          "paths": [
+            "/workspaces/workspace/metal3-io.github.io"
+          ]
+        },
+        {
+          "paths": [
+            "/workspaces/workspace/metal3-ipam"
+          ]
+        },
+        {
+          "paths": [
+            "/workspaces/workspace/metal3-project-infra"
+          ]
+        },
+        {
+          "paths": [
+            "/workspaces/workspace/prow"
+          ]
+        }
+      ]
     },
     {
-      "host": "lennart-capo-upgrade",
+      "host": "lennart-dev",
       "username": "ubuntu",
       "args": [],
       "projects": [
         {
-          "paths": ["/home/ubuntu/dotfiles"],
+          "paths": [
+            "/home/ubuntu/kubeadm"
+          ]
         },
-      ],
+        {
+          "paths": [
+            "/home/ubuntu/kubernetes"
+          ]
+        },
+        {
+          "paths": [
+            "/home/ubuntu/openclaw"
+          ]
+        }
+      ]
     },
+    {
+      "host": "lennart-kubevirtbmc",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/ubuntu/playground"
+          ]
+        }
+      ]
+    }
   ],
   "ui_font_size": 16,
   "buffer_font_size": 16,
@@ -141,6 +183,7 @@
       "minimal-write": {
         "name": "Minimal write",
         "tools": {
+          "update_plan": true,
           "search_web": true,
           "copy_path": true,
           "create_directory": true,
@@ -289,6 +332,10 @@
       "model": "claude-sonnet-4.6",
     },
     "commit_message_model": {
+      "provider": "copilot_chat",
+      "model": "claude-haiku-4.5",
+    },
+    "thread_summary_model": {
       "provider": "copilot_chat",
       "model": "claude-haiku-4.5",
     },
