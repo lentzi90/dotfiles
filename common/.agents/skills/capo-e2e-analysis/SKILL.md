@@ -1,3 +1,8 @@
+---
+name: capo-e2e-analysis
+description: A guide to analyzing Cluster API Provider OpenStack (CAPO) end-to-end test failures
+---
+
 # CAPO E2E Test Analysis Skill
 
 Analyze Cluster API Provider OpenStack (CAPO) end-to-end test failures from Prow CI jobs (PR-triggered and periodic).

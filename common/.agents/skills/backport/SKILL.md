@@ -1,4 +1,9 @@
-# Skill: Backporting a PR to a Release Branch
+---
+name: backporting-a-pr-to-a-release-branch
+description: A guide to backporting a PR to a release branch using git
+---
+
+# Backporting a PR to a Release Branch
 
 ## Steps
 
