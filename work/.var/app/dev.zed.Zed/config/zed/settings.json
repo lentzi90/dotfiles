@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "diff_view_style": "split",
   "project_panel": {
     "dock": "right",
   },
@@ -100,6 +101,11 @@
         {
           "paths": [
             "/workspaces/workspace/ironic-standalone-operator"
+          ]
+        },
+        {
+          "paths": [
+            "/workspaces/workspace/kubernetes"
           ]
         },
         {
