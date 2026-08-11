@@ -75,6 +75,11 @@
         },
         {
           "paths": [
+            "/workspaces/workspace/cluster-api"
+          ]
+        },
+        {
+          "paths": [
             "/workspaces/workspace/cluster-api-provider-metal3"
           ]
         },
@@ -105,12 +110,27 @@
         },
         {
           "paths": [
+            "/workspaces/workspace/k8s.io"
+          ]
+        },
+        {
+          "paths": [
             "/workspaces/workspace/kubernetes"
           ]
         },
         {
           "paths": [
             "/workspaces/workspace/kubevirt"
+          ]
+        },
+        {
+          "paths": [
+            "/workspaces/workspace/metal3-dev-env"
+          ]
+        },
+        {
+          "paths": [
+            "/workspaces/workspace/metal3-docs"
           ]
         },
         {
@@ -131,6 +151,16 @@
         {
           "paths": [
             "/workspaces/workspace/prow"
+          ]
+        },
+        {
+          "paths": [
+            "/workspaces/workspace/test-infra"
+          ]
+        },
+        {
+          "paths": [
+            "/workspaces/workspace/workstation"
           ]
         }
       ]
@@ -181,6 +211,9 @@
     "show": "always",
   },
   "agent": {
+    "sandbox_permissions": {
+      "allow_all_hosts": true
+    },
     "dock": "left",
     "tool_permissions": {
       "default": "allow",
@@ -335,7 +368,7 @@
       "effort": "high",
       "enable_thinking": true,
       "provider": "copilot_chat",
-      "model": "claude-sonnet-4.6",
+      "model": "claude-sonnet-5",
     },
     "commit_message_model": {
       "provider": "copilot_chat",
