@@ -47,6 +47,11 @@
       "command": "github-mcp.sh",
       "args": [],
     },
+    "loki-mcp": {
+      "enabled": true,
+      "command": "loki-mcp.sh",
+      "args": [],
+    },
   },
   "ssh_connections": [
     {
@@ -222,6 +227,7 @@
       "minimal-write": {
         "name": "Minimal write",
         "tools": {
+          "write_file": true,
           "update_plan": true,
           "search_web": true,
           "copy_path": true,
