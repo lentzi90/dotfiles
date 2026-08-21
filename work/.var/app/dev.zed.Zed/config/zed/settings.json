@@ -7,7 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "diff_view_style": "split",
+  "diff_view_style": "unified",
   "project_panel": {
     "dock": "right",
   },
@@ -126,6 +126,11 @@
         {
           "paths": [
             "/workspaces/workspace/kubevirt"
+          ]
+        },
+        {
+          "paths": [
+            "/workspaces/workspace/kyverno"
           ]
         },
         {
@@ -386,10 +391,27 @@
     },
   },
   "language_models": {
-    "ollama": {
-      "context_window": 40000,
-      "api_url": "http://192.168.122.108:11434",
-    },
+    "openai_compatible": {
+      "vllm": {
+        "api_url": "http://localhost:8000/v1",
+        "available_models": [
+          {
+            "name": "Qwen/Qwen2.5-Coder-7B-Instruct-AWQ",
+            "display_name": "Qwen2.5-Coder-7B-Instruct-AWQ",
+            "max_tokens": 30000,
+            "capabilities": {
+             	"tools": true,
+             	"images": false,
+             	"parallel_tool_calls": false,
+             	"prompt_cache_key": false,
+             	"chat_completions": true,
+             	"interleaved_reasoning": false,
+             	"max_tokens_parameter": false
+            }
+          }
+        ]
+      }
+    }
   },
   "languages": {
     "Markdown": {
