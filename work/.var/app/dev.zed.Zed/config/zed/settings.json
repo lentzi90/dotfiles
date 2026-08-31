@@ -95,6 +95,11 @@
         },
         {
           "paths": [
+            "/workspaces/workspace/enhancements"
+          ]
+        },
+        {
+          "paths": [
             "/workspaces/workspace/estjorvas/ci-bot"
           ]
         },
@@ -221,6 +226,24 @@
     "show": "always",
   },
   "agent": {
+    "favorite_models": [
+      {
+        "provider": "copilot_chat",
+        "model": "claude-sonnet-5",
+        "enable_thinking": true,
+        "effort": "high"
+      },
+      {
+        "provider": "vllm",
+        "model": "Qwen/Qwen2.5-Coder-7B-Instruct-AWQ",
+        "enable_thinking": false
+      },
+      {
+        "provider": "copilot_chat",
+        "model": "claude-haiku-4.5",
+        "enable_thinking": true
+      }
+    ],
     "sandbox_permissions": {
       "allow_all_hosts": true
     },
