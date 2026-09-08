@@ -88,3 +88,15 @@ if [[ "${DRY_RUN}" == "true" ]]; then
 else
   gpg --import "$(pwd)/public.asc"
 fi
+
+# Remember which persona was used, so that dotfiles_update (see
+# functions/dotfiles.sh) can reuse it later without having to be told again.
+DOTFILES_STATE_DIR="${HOME}/.config/dotfiles"
+echo "Storing selected persona (${PERSONA}) for future updates..."
+if [[ "${DRY_RUN}" == "true" ]]; then
+  echo "mkdir -p \"${DOTFILES_STATE_DIR}\""
+  echo "echo \"${PERSONA}\" > \"${DOTFILES_STATE_DIR}/persona\""
+else
+  mkdir -p "${DOTFILES_STATE_DIR}"
+  echo "${PERSONA}" > "${DOTFILES_STATE_DIR}/persona"
+fi
