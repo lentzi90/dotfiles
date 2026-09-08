@@ -37,6 +37,7 @@
     },
   },
   "agent": {
+    "default_profile": "write",
     "sandbox_permissions": {
       "allow_all_hosts": true,
       "network_hosts": []
@@ -44,6 +45,18 @@
     "dock": "left",
     "tool_permissions": {
       "tools": {
+        "mcp:github-mcp:search_pull_requests": {
+          "default": "allow"
+        },
+        "mcp:github-mcp:list_commits": {
+          "default": "allow"
+        },
+        "mcp:github-mcp:list_tags": {
+          "default": "allow"
+        },
+        "mcp:github-mcp:get_job_logs": {
+          "default": "allow"
+        },
         "mcp:github-mcp:issue_read": {
           "default": "allow"
         },
