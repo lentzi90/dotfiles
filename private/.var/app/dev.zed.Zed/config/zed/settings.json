@@ -37,9 +37,55 @@
     },
   },
   "agent": {
+    "sandbox_permissions": {
+      "allow_all_hosts": true,
+      "network_hosts": []
+    },
     "dock": "left",
     "tool_permissions": {
       "tools": {
+        "mcp:github-mcp:issue_read": {
+          "default": "allow"
+        },
+        "mcp:github-mcp:get_release_by_tag": {
+          "default": "allow"
+        },
+        "mcp:github-mcp:get_latest_release": {
+          "default": "allow"
+        },
+        "copy_path": {
+          "default": "allow"
+        },
+        "delete_path": {
+          "always_allow": [
+            {
+              "pattern": "^choir-parts/"
+            }
+          ]
+        },
+        "mcp:github-mcp:search_issues": {
+          "default": "allow"
+        },
+        "mcp:github-mcp:search_repositories": {
+          "default": "allow"
+        },
+        "mcp:github-mcp:list_releases": {
+          "default": "allow"
+        },
+        "mcp:github-mcp:search_code": {
+          "default": "allow"
+        },
+        "fetch": {
+          "default": "allow",
+          "always_allow": [
+            {
+              "pattern": "^https?://raw\\.githubusercontent\\.com"
+            }
+          ]
+        },
+        "mcp:github-mcp:get_file_contents": {
+          "default": "allow"
+        },
         "terminal": {
           "default": "allow",
         },
@@ -52,7 +98,7 @@
       "effort": "high",
       "enable_thinking": true,
       "provider": "copilot_chat",
-      "model": "claude-opus-4.6",
+      "model": "claude-sonnet-5",
     },
     "model_parameters": [],
     "inline_assistant_model": {
