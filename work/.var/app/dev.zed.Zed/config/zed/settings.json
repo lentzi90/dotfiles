@@ -22,6 +22,9 @@
     "tree_view": true,
   },
   "agent_servers": {
+    "goose": {
+      "type": "registry"
+    },
     "github-copilot-cli": {
       "type": "registry",
     },
