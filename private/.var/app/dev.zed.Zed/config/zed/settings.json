@@ -7,6 +7,20 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "ssh_connections": [
+    {
+      "host": "workspace.devsy",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/workspaces/workspace/personal-cloud"
+          ]
+        }
+      ]
+    }
+  ],
+  "diff_view_style": "unified",
   "project_panel": {
     "dock": "right",
   },
