@@ -24,7 +24,7 @@
 # ---------------------------------------------------------------------------
 # Defaults
 # ---------------------------------------------------------------------------
-DEVVM_NETWORK="${DEVVM_NETWORK:-metal3-ci-net}"
+DEVVM_NETWORK="${DEVVM_NETWORK:-metal3-dev-net}"
 DEVVM_KEY_PAIR="${DEVVM_KEY_PAIR:-lennart-ed25519}"
 DEVVM_FLAVOR="${DEVVM_FLAVOR:-c4m16-est}"
 DEVVM_IMAGE="${DEVVM_IMAGE:-Ubuntu-24.04}"

@@ -31,7 +31,7 @@ workstation_venv() {
         echo "Please specify 'clean', 'setup' or 'activate'"
         return 1
     fi
-    python -m venv .venv
+    python3 -m venv .venv
     source .venv/bin/activate
     pip install ansible jmespath
 

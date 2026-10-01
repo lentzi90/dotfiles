@@ -250,6 +250,12 @@
         "provider": "copilot_chat",
         "model": "claude-haiku-4.5",
         "enable_thinking": true
+      },
+      {
+        "provider": "copilot_chat",
+        "model": "claude-sonnet-5.5",
+        "enable_thinking": true,
+        "effort": "high"
       }
     ],
     "sandbox_permissions": {
@@ -410,7 +416,7 @@
       "effort": "high",
       "enable_thinking": true,
       "provider": "copilot_chat",
-      "model": "claude-sonnet-5",
+      "model": "claude-sonnet-5.5",
     },
     "commit_message_model": {
       "provider": "copilot_chat",
