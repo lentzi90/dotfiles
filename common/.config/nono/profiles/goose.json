@@ -1,0 +1,9 @@
+{
+  "extends": "default",
+  "meta": { "name": "goose", "description": "goose agent: rw workdir, session data/logs; config read-only" },
+  "workdir": { "access": "readwrite" },
+  "filesystem": {
+    "allow": ["$HOME/.local/state/goose", "$HOME/.local/share/goose"],
+    "read": ["$HOME/.config/goose"]
+  }
+}
