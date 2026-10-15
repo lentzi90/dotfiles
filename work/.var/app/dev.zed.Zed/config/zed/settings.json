@@ -58,19 +58,36 @@
   },
   "ssh_connections": [
     {
-      "host": "workspace.devpod",
+      "host": "lennart-dev",
+      "username": "ubuntu",
       "args": [],
       "projects": [
         {
           "paths": [
-            "/home/ubuntu/playground"
+            "/home/ubuntu/kubeadm"
           ]
         },
         {
           "paths": [
-            "/workspaces/workspace"
+            "/home/ubuntu/kubernetes"
           ]
         },
+        {
+          "paths": [
+            "/home/ubuntu/workspace/baremetal-operator"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "notes.devsy",
+      "args": [],
+      "projects": []
+    },
+    {
+      "host": "workspace.devsy",
+      "args": [],
+      "projects": [
         {
           "paths": [
             "/workspaces/workspace/ai-conformance"
@@ -88,11 +105,6 @@
         },
         {
           "paths": [
-            "/workspaces/workspace/cluster-api-provider-metal3"
-          ]
-        },
-        {
-          "paths": [
             "/workspaces/workspace/cluster-api-provider-openstack"
           ]
         },
@@ -103,37 +115,7 @@
         },
         {
           "paths": [
-            "/workspaces/workspace/estjorvas/ci-bot"
-          ]
-        },
-        {
-          "paths": [
-            "/workspaces/workspace/ironic"
-          ]
-        },
-        {
-          "paths": [
-            "/workspaces/workspace/ironic-image"
-          ]
-        },
-        {
-          "paths": [
-            "/workspaces/workspace/ironic-standalone-operator"
-          ]
-        },
-        {
-          "paths": [
-            "/workspaces/workspace/k8s.io"
-          ]
-        },
-        {
-          "paths": [
             "/workspaces/workspace/kubernetes"
-          ]
-        },
-        {
-          "paths": [
-            "/workspaces/workspace/kubevirt"
           ]
         },
         {
@@ -143,80 +125,7 @@
         },
         {
           "paths": [
-            "/workspaces/workspace/metal3-dev-env"
-          ]
-        },
-        {
-          "paths": [
-            "/workspaces/workspace/metal3-docs"
-          ]
-        },
-        {
-          "paths": [
-            "/workspaces/workspace/metal3-io.github.io"
-          ]
-        },
-        {
-          "paths": [
-            "/workspaces/workspace/metal3-ipam"
-          ]
-        },
-        {
-          "paths": [
             "/workspaces/workspace/metal3-project-infra"
-          ]
-        },
-        {
-          "paths": [
-            "/workspaces/workspace/prow"
-          ]
-        },
-        {
-          "paths": [
-            "/workspaces/workspace/test-infra"
-          ]
-        },
-        {
-          "paths": [
-            "/workspaces/workspace/workstation"
-          ]
-        }
-      ]
-    },
-    {
-      "host": "lennart-dev",
-      "username": "ubuntu",
-      "args": [],
-      "projects": [
-        {
-          "paths": [
-            "/home/ubuntu/kubeadm"
-          ]
-        },
-        {
-          "paths": [
-            "/home/ubuntu/kubernetes"
-          ]
-        },
-        {
-          "paths": [
-            "/home/ubuntu/openclaw"
-          ]
-        },
-        {
-          "paths": [
-            "/home/ubuntu/workspace/baremetal-operator"
-          ]
-        }
-      ]
-    },
-    {
-      "host": "lennart-kubevirtbmc",
-      "args": [],
-      "projects": [
-        {
-          "paths": [
-            "/home/ubuntu/playground"
           ]
         }
       ]
@@ -236,12 +145,6 @@
   "agent": {
     "favorite_models": [
       {
-        "provider": "copilot_chat",
-        "model": "claude-sonnet-5",
-        "enable_thinking": true,
-        "effort": "high"
-      },
-      {
         "provider": "vllm",
         "model": "Qwen/Qwen2.5-Coder-7B-Instruct-AWQ",
         "enable_thinking": false
@@ -254,6 +157,12 @@
       {
         "provider": "copilot_chat",
         "model": "claude-sonnet-5.5",
+        "enable_thinking": true,
+        "effort": "high"
+      },
+      {
+        "provider": "copilot_chat",
+        "model": "claude-opus-5.5",
         "enable_thinking": true,
         "effort": "high"
       }
