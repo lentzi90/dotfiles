@@ -125,7 +125,7 @@
       "effort": "high",
       "enable_thinking": true,
       "provider": "copilot_chat",
-      "model": "claude-sonnet-5",
+      "model": "claude-sonnet-5.5",
     },
     "model_parameters": [],
     "inline_assistant_model": {
