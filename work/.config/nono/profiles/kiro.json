@@ -1,0 +1,8 @@
+{
+  "extends": "default",
+  "meta": { "name": "kiro", "description": "kiro-cli: rw workdir, kiro config/sessions and data dir (auth db, bundled runtime, run state)" },
+  "workdir": { "access": "readwrite" },
+  "filesystem": {
+    "allow": ["$HOME/.kiro", "$HOME/.local/share/kiro-cli"]
+  }
+}
