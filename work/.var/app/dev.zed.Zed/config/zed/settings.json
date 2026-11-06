@@ -22,13 +22,13 @@
     "tree_view": true,
   },
   "agent_servers": {
+    "kiro": {
+      "type": "registry"
+    },
     "goose": {
       "type": "registry"
     },
     "github-copilot-cli": {
-      "type": "registry",
-    },
-    "opencode": {
       "type": "registry",
     },
     "github-copilot": {
@@ -82,7 +82,13 @@
     {
       "host": "notes.devsy",
       "args": [],
-      "projects": []
+      "projects": [
+        {
+          "paths": [
+            "/workspaces/notes"
+          ]
+        }
+      ]
     },
     {
       "host": "workspace.devsy",
@@ -115,12 +121,22 @@
         },
         {
           "paths": [
+            "/workspaces/workspace/ironic-standalone-operator"
+          ]
+        },
+        {
+          "paths": [
             "/workspaces/workspace/kubernetes"
           ]
         },
         {
           "paths": [
             "/workspaces/workspace/kyverno"
+          ]
+        },
+        {
+          "paths": [
+            "/workspaces/workspace/metal3-ipam"
           ]
         },
         {
