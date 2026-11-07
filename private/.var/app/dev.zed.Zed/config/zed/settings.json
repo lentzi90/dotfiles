@@ -16,6 +16,11 @@
           "paths": [
             "/workspaces/workspace/personal-cloud"
           ]
+        },
+        {
+          "paths": [
+            "/workspaces/workspace/playground"
+          ]
         }
       ]
     }
