@@ -1,10 +1,11 @@
 {
   "extends": "default",
-  "meta": { "name": "goose", "description": "goose agent: rw workdir, session data/logs; config read-only; git config read-only; go toolchain with module/build caches; MCP servers reached over host-side unix sockets (no credentials in the sandbox)" },
+  "meta": { "name": "goose", "description": "goose agent: rw workdir, session data/logs; config read-only; git config read-only; go toolchain with module/build caches; MCP servers reached over host-side unix sockets (no credentials in the sandbox); all other unix sockets (docker, ssh/gpg agent, dbus, ...) blocked" },
   "groups": {
     "include": ["git_config", "go_runtime", "go_runtime_linux"]
   },
   "workdir": { "access": "readwrite" },
+  "linux": { "af_unix_mediation": "pathname" },
   "filesystem": {
     "allow": [
       "$HOME/.local/state/goose",

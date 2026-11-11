@@ -1,10 +1,11 @@
 {
   "extends": "default",
-  "meta": { "name": "kiro", "description": "kiro-cli: rw workdir, kiro config/sessions and data dir (auth db, bundled runtime, run state); git config read-only; go toolchain with module/build caches; MCP servers reached over host-side unix sockets (no credentials in the sandbox)" },
+  "meta": { "name": "kiro", "description": "kiro-cli: rw workdir, kiro config/sessions and data dir (auth db, bundled runtime, run state); git config read-only; go toolchain with module/build caches; MCP servers reached over host-side unix sockets (no credentials in the sandbox); all other unix sockets (docker, ssh/gpg agent, dbus, ...) blocked" },
   "groups": {
     "include": ["git_config", "go_runtime", "go_runtime_linux"]
   },
   "workdir": { "access": "readwrite" },
+  "linux": { "af_unix_mediation": "pathname" },
   "filesystem": {
     "allow": [
       "$HOME/.kiro",
@@ -16,7 +17,8 @@
     ],
     "read_file": [
       "$HOME/.local/bin/agent-mcp-connect.sh",
-      "$HOME/.kiro/settings/mcp.json"
+      "$HOME/.kiro/settings/mcp.json",
+      "$HOME/.kiro/settings/permissions.yaml"
     ],
     "unix_socket_dir": ["$XDG_RUNTIME_DIR/agent-mcp"]
   }

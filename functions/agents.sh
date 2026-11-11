@@ -75,4 +75,6 @@ agent-sandbox() {
 # These intentionally shadow the real binaries so the sandbox cannot be
 # forgotten. Use `command kiro-cli` / `command goose` to bypass it.
 kiro-cli() { agent-sandbox kiro kiro-cli "$@"; }
-goose() { agent-sandbox goose goose "$@"; }
+# The sandbox blocks the D-Bus socket (af_unix_mediation), so goose cannot reach
+# the keyring/Secret Service. Without this it fails with "Provider is not configured".
+goose() { GOOSE_DISABLE_KEYRING=1 agent-sandbox goose goose "$@"; }

@@ -1,0 +1,14 @@
+rules:
+  # Let Kiro edit files in the workspace without prompting. The nono sandbox is
+  # the real boundary (rw workdir plus a few cache dirs); this only removes the
+  # per-edit prompt. Kiro's built-in always-ask paths (.git/**, .kiro/agents
+  # and friends) and hard denies (.kiro/settings) still apply.
+  #
+  # Deliberately scoped to the workspace: an fs_write allow with no `match`
+  # also silences the extra prompts for .kiro/steering and .kiro/skills in
+  # untrusted workspaces.
+  - capability: fs_write
+    match: ["./**"]
+    effect: allow
+  - capability: fs_read
+    effect: allow
