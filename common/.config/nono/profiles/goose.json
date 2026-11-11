@@ -1,6 +1,6 @@
 {
   "extends": "default",
-  "meta": { "name": "goose", "description": "goose agent: rw workdir, session data/logs; config read-only; git config read-only; go toolchain with module/build caches" },
+  "meta": { "name": "goose", "description": "goose agent: rw workdir, session data/logs; config read-only; git config read-only; go toolchain with module/build caches; MCP servers reached over host-side unix sockets (no credentials in the sandbox)" },
   "groups": {
     "include": ["git_config", "go_runtime", "go_runtime_linux"]
   },
@@ -15,6 +15,8 @@
       "$HOME/.cache/goimports",
       "$HOME/.cache/golangci-lint"
     ],
-    "read": ["$HOME/.config/goose"]
+    "read": ["$HOME/.config/goose"],
+    "read_file": ["$HOME/.local/bin/agent-mcp-connect.sh"],
+    "unix_socket_dir": ["$XDG_RUNTIME_DIR/agent-mcp"]
   }
 }

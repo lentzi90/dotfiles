@@ -1,0 +1,28 @@
+{
+  "mcpServers": {
+    "github-mcp": {
+      "command": "agent-mcp-connect.sh",
+      "args": ["github"],
+      "autoApprove": [
+        "search_pull_requests",
+        "list_commits",
+        "list_tags",
+        "get_job_logs",
+        "issue_read",
+        "get_release_by_tag",
+        "get_latest_release",
+        "search_issues",
+        "search_repositories",
+        "list_releases",
+        "search_code",
+        "get_file_contents",
+        "pull_request_read"
+      ]
+    },
+    "loki-mcp": {
+      "command": "agent-mcp-connect.sh",
+      "args": ["loki"],
+      "autoApprove": ["loki_query", "loki_label_names", "loki_label_values"]
+    }
+  }
+}
