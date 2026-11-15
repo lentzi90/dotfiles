@@ -55,6 +55,10 @@
       "command": "loki-mcp.sh",
       "args": [],
     },
+    "kubernetes-mcp": {
+      "command": "kubernetes-mcp.sh",
+      "args": [],
+    },
   },
   "ssh_connections": [
     {
@@ -331,6 +335,25 @@
               "get_commit": true,
               "get_gist": true,
               "get_label": true,
+            },
+          },
+          "kubernetes-mcp": {
+            "tools": {
+              "api_resources_list": true,
+              "configuration_contexts_list": true,
+              "events_list": true,
+              "namespaces_list": true,
+              "nodes_log": true,
+              "nodes_stats_summary": true,
+              "nodes_top": true,
+              "pods_get": true,
+              "pods_list": true,
+              "pods_list_in_namespace": true,
+              "pods_log": true,
+              "pods_top": true,
+              "resources_get": true,
+              "resources_list": true,
+              "targets_list": true,
             },
           },
         },

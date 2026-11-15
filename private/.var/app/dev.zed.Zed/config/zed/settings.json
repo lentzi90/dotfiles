@@ -59,6 +59,10 @@
       "command": "github-mcp.sh",
       "args": [],
     },
+    "kubernetes-mcp": {
+      "command": "kubernetes-mcp.sh",
+      "args": [],
+    },
   },
   "agent": {
     "default_profile": "write",

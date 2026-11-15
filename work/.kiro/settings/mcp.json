@@ -42,6 +42,27 @@
       "command": "agent-mcp-connect.sh",
       "args": ["loki"],
       "autoApprove": ["loki_query", "loki_label_names", "loki_label_values"]
+    },
+    "kubernetes-mcp": {
+      "command": "agent-mcp-connect.sh",
+      "args": ["kubernetes"],
+      "autoApprove": [
+        "api_resources_list",
+        "configuration_contexts_list",
+        "events_list",
+        "namespaces_list",
+        "nodes_log",
+        "nodes_stats_summary",
+        "nodes_top",
+        "pods_get",
+        "pods_list",
+        "pods_list_in_namespace",
+        "pods_log",
+        "pods_top",
+        "resources_get",
+        "resources_list",
+        "targets_list"
+      ]
     }
   }
 }

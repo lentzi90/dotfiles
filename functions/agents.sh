@@ -1,7 +1,8 @@
 # Run AI agents inside nono sandboxes, with MCP servers kept on the host.
 #
-# The MCP servers (github-mcp.sh, loki-mcp.sh) need credentials (gh keyring,
-# ~/.config/loki-mcp/env) that the sandboxed agent must not be able to read.
+# The MCP servers (github-mcp.sh, loki-mcp.sh, kubernetes-mcp.sh) need
+# credentials (gh keyring, ~/.config/loki-mcp/env, ~/.kube/config) that the
+# sandboxed agent must not be able to read.
 # So they run outside the sandbox, behind Unix sockets in
 # ${XDG_RUNTIME_DIR}/agent-mcp/, one server process per connection
 # (systemd-socket-activate, inetd style). The sandbox is only granted
@@ -69,6 +70,7 @@ agent-sandbox() {
     shift
     _agent_mcp_serve github github-mcp.sh || return
     _agent_mcp_serve loki loki-mcp.sh || return
+    _agent_mcp_serve kubernetes kubernetes-mcp.sh || return
     nono run --profile "${profile}" --allow-cwd -- "$@"
 }
 

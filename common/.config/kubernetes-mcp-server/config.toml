@@ -1,0 +1,37 @@
+# Configuration for containers/kubernetes-mcp-server, loaded by
+# ~/.local/bin/kubernetes-mcp.sh. Reference:
+# https://github.com/containers/kubernetes-mcp-server/blob/main/docs/configuration.md
+#
+# The goal is to be as close to read-only as possible. Everything below is a
+# best-effort guardrail that only narrows what the MCP client is offered. The
+# real access control is Kubernetes RBAC on the identity in the kubeconfig, so
+# point it at a read-only user/context where possible.
+
+# Only register tools annotated readOnlyHint=true. This hides pods_exec,
+# pods_run, pods_delete, resources_create_or_update, resources_delete,
+# resources_scale and the write tools of any other toolset.
+read_only = true
+
+# Stick to the defaults: no helm, kubevirt, tekton, ... toolsets.
+toolsets = ["core", "config"]
+
+# Belt and braces: explicitly unregister the write tools in case read_only ever
+# stops covering one of them. configuration_view is annotated read-only but
+# returns the kubeconfig contents (cluster endpoints, possibly credentials), so
+# it is disabled as well.
+disabled_tools = [
+  "pods_exec",
+  "pods_run",
+  "pods_delete",
+  "resources_create_or_update",
+  "resources_delete",
+  "resources_scale",
+  "configuration_view",
+]
+
+# Reading Secrets is a read operation, so read_only does not prevent it. Reject
+# it so secret values do not end up in the model context.
+[[denied_resources]]
+group = ""
+version = "v1"
+kind = "Secret"

@@ -6,7 +6,7 @@
 # The servers are started and listen on ${XDG_RUNTIME_DIR}/agent-mcp/<name>.sock
 # through the kiro-cli/goose shell functions in functions/agents.sh.
 #
-# Usage: agent-mcp-connect.sh <name>      (name: github, loki)
+# Usage: agent-mcp-connect.sh <name>      (name: github, loki, kubernetes)
 
 set -euo pipefail
 
