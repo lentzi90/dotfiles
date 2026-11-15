@@ -18,6 +18,7 @@
     ],
     "read": ["$HOME/.config/goose"],
     "read_file": ["$HOME/.local/bin/agent-mcp-connect.sh"],
+    "unix_socket": ["/run/systemd/resolve/io.systemd.Resolve"],
     "unix_socket_dir": ["$XDG_RUNTIME_DIR/agent-mcp"]
   }
 }
