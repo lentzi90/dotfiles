@@ -76,5 +76,16 @@ agent-sandbox() {
 # forgotten. Use `command kiro-cli` / `command goose` to bypass it.
 kiro-cli() { agent-sandbox kiro kiro-cli "$@"; }
 # The sandbox blocks the D-Bus socket (af_unix_mediation), so goose cannot reach
-# the keyring/Secret Service. Without this it fails with "Provider is not configured".
-goose() { GOOSE_DISABLE_KEYRING=1 agent-sandbox goose goose "$@"; }
+# the keyring/Secret Service. With GOOSE_DISABLE_KEYRING=1 it then looks for
+# secrets in ~/.config/goose/secrets.yaml, which does not exist. So fetch the
+# Copilot token from the keyring here, outside the sandbox, and hand it over as
+# an env var, which goose checks before any secret store. Without it goose fails
+# with "Provider is not configured".
+goose() (
+    local token
+    token=$(secret-tool lookup service goose username secrets 2>/dev/null |
+        jq -r '.GITHUB_COPILOT_TOKEN // empty' 2>/dev/null) || token=
+    export GOOSE_DISABLE_KEYRING=1
+    [[ -n ${token} ]] && export GITHUB_COPILOT_TOKEN=${token}
+    agent-sandbox goose goose "$@"
+)
